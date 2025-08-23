@@ -11,7 +11,7 @@ import numpy as np
 #Load Models
 #- WangchanBERTa
 content_model_dir = "putthaimastan/wangchanberta_thai_sms_content_classification"
-wanchanberta_model = AutoModelForSequenceClassification.from_pretrained(content_model_dir)
+wanchanberta_model = AutoModelForSequenceClassification.from_pretrained(content_model_dir,device_map="auto")
 tokenizer = AutoTokenizer.from_pretrained(content_model_dir)
 wangchanberta_labels = ['safe', 'spam', 'scam']
 
