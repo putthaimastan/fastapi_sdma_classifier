@@ -1,5 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+import uvicorn
 from pydantic import BaseModel
 from model import predict_sms_content, predict_sms_link, compute_sms_risk_score
 # For Data Preprocessing Functions
@@ -198,4 +199,10 @@ async def predict_risk_score(sms_input_data: SmsInput):
 @app.get("/")
 async def root():
     return {"message": "This is Risk Scoring API"}
+
+if __name__ == "__main__":
+   
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)
+
     
