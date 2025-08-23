@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+.env
+models/best_sms_content_model/
